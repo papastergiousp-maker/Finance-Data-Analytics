@@ -31,6 +31,11 @@
         .powerbi { background: #f2c811; color: #333; }
         .cv { background: #dc3545; grid-column: span 2; margin-top: 10px; }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); opacity: 0.9; }
+        
+        /* Video Section Styling */
+        .video-section { margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; background: #000; margin-top: 10px; }
+        .video-container iframe, .video-container video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
     </style>
 </head>
 <body>
@@ -58,10 +63,17 @@
         <div class="grid">
             <a href="https://www.linkedin.com/in/spyros-papastergiou" class="btn linkedin" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn Profile</a>
             <a href="https://public.tableau.com/app/profile/spyros.papastergiou" class="btn tableau" target="_blank"><i class="fas fa-chart-bar"></i> Tableau Portfolio</a>
-            <a href="https://github.com/papastergiousp" class="btn github" target="_blank"><i class="fab fa-github"></i> GitHub Projects</a>
-            <a href="https://github.com/papastergiousp" class="btn powerbi"><i class="fas fa-bolt"></i> Power BI Projects</a>
+            <a href="https://github.com/papastergiousp" class="btn github" target="_blank"><i class="fab fa-github"></i> Main GitHub</a>
+            <a href="https://github.com/papastergiousp/POWER-BI" class="btn powerbi" target="_blank"><i class="fas fa-bolt"></i> Power BI Repo</a>
             
             <a href="CV_Papastergiou.pdf" class="btn cv" target="_blank"><i class="fas fa-file-pdf"></i> Download Full CV</a>
+        </div>
+
+        <div class="video-section">
+            <h3 style="color: var(--primary); font-size: 1.1rem;">📽️ Project Demo</h3>
+            <div class="video-container">
+                <p style="color: white; padding-top: 20%; font-size: 0.8rem;">Ανεβάστε το demo σας εδώ</p>
+            </div>
         </div>
     </div>
 </body>
