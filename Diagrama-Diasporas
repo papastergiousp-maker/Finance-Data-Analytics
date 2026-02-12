@@ -1,0 +1,28 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Δείγμα δεδομένων
+categories = ['Category 1', 'Category 2', 'Category 3', 'Category 4', 'Category 5']
+values_1 = [120, 150, 70, 220, 100]
+values_2 = [80, 230, 100, 70, 180]
+values_3 = [200, 100, 150, 100, 225]
+
+fig = plt.figure(figsize=(10, 5))
+ax = fig.add_subplot(111, projection='3d')
+
+colors = plt.cm.viridis(np.linspace(0, 1, len(categories)))
+markers = ['o', 's', '^', 'D', 'P']
+
+for i, category in enumerate(categories):
+    ax.scatter(values_1[i], values_2[i], values_3[i], 
+              color=colors[i], marker=markers[i], s=100, 
+              edgecolors='k', linewidths=1.5)
+    ax.text(values_1[i], values_2[i], values_3[i], 
+           category, fontsize=10, color=colors[i])
+
+ax.set_xlabel('Value 1', fontsize=14)
+ax.set_ylabel('Value 2', fontsize=14)
+ax.set_zlabel('Value 3', fontsize=14)
+ax.tick_params(axis='both', which='major', labelsize=12)
+plt.title("3D Scatter Plot Example", fontsize=20)
+plt.show()
