@@ -1,27 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GFPG1YS6CB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-GFPG1YS6CB');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spyros Papastergiou | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "vr1rwybrwi");
-
         function handleContact(type, value, element, originalText) {
             const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
             const icon = element.querySelector('i').outerHTML;
@@ -92,7 +77,12 @@
         .tableau  { background: #e97627; }
         .github   { background: #24292e; }
         .powerbi  { background: #f2c811; color: #333; }
-        .business-dash { background: linear-gradient(135deg, #6f42c1, #a020f0); grid-column: span 2; font-size: 1.05rem; }
+        .project-row { grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .proj-row-label { grid-column: span 2; font-size: 0.72rem; font-weight: 700; color: #28a745; text-transform: uppercase; letter-spacing: 1px; margin-bottom: -8px; display: flex; align-items: center; gap: 8px; }
+        .proj-row-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, #c8e6c9, transparent); }
+        .business-dash { background: linear-gradient(135deg, #6f42c1, #a020f0); font-size: 0.95rem; flex-direction: column; gap: 4px; padding: 16px; }
+        .tomato-dash   { background: linear-gradient(135deg, #b91c1c, #dc2626); font-size: 0.95rem; flex-direction: column; gap: 4px; padding: 16px; }
+        .proj-sub { font-size: 0.7rem; opacity: 0.8; font-weight: 400; }
         .cv-page  { background: #1F4E79; grid-column: span 2; }
         .full-width { grid-column: span 2; }
 
@@ -153,6 +143,40 @@
             .data-icon { display: none; }
             .card { padding: 25px; }
         }
+
+        /* ── COOKIE BANNER ── */
+        #cookie-banner {
+            display: none;
+            position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+            background: #fff; border-top: 3px solid var(--primary);
+            box-shadow: 0 -4px 24px rgba(0,0,0,.12);
+            padding: 14px 24px; gap: 16px;
+            align-items: center; justify-content: center; flex-wrap: wrap;
+        }
+        .ck-icon { font-size: 1.9rem; flex-shrink: 0; }
+        .ck-text { display: flex; flex-direction: column; flex: 1; min-width: 180px; gap: 3px; }
+        .ck-text strong { color: var(--primary); font-size: .9rem; }
+        .ck-desc { font-size: .75rem; color: #666; line-height: 1.4; }
+        .ck-btns { display: flex; gap: 8px; flex-shrink: 0; }
+        .ck-accept {
+            background: var(--primary); color: #fff; border: none;
+            padding: 9px 20px; border-radius: 7px; font-weight: 700;
+            font-size: .82rem; cursor: pointer; transition: background .2s;
+        }
+        .ck-accept:hover { background: var(--secondary); }
+        .ck-decline {
+            background: transparent; color: #777;
+            border: 1px solid #ccc; padding: 9px 16px;
+            border-radius: 7px; font-size: .82rem;
+            cursor: pointer; transition: all .2s;
+        }
+        .ck-decline:hover { background: #f5f5f5; border-color: #999; }
+        @media (max-width: 600px) {
+            #cookie-banner { flex-direction: column; text-align: center; }
+            .ck-btns { width: 100%; justify-content: center; }
+            .ck-accept, .ck-decline { flex: 1; }
+        }
+        /* ── / COOKIE BANNER ── */
     </style>
 </head>
 <body class="english">
@@ -216,12 +240,21 @@
                onclick="clarity('set','btn_click','tableau')">
                <i class="fas fa-chart-bar"></i> Tableau</a>
 
-            <a href="/dashboard/" class="btn business-dash fade-item"
-               onclick="clarity('set','btn_click','dashboard')">
-               <i class="fas fa-chart-line"></i>
-               <span class="lang-en">Interactive Financial Analytics Dashboard</span>
-               <span class="lang-gr">Διαδραστικό Dashboard Χρηματοοικονομικής Ανάλυσης</span>
-            </a>
+            <div class="proj-row-label fade-item">🌐 Live Projects</div>
+            <div class="project-row fade-item">
+              <a href="/dashboard/" class="btn business-dash"
+                 onclick="clarity('set','btn_click','dashboard')">
+                 <span><i class="fas fa-chart-line"></i> Greek Banking Sector 2022–2024</span>
+                 <span class="proj-sub lang-en">ROE · NIM · CET1 · P/B · Interactive</span>
+                 <span class="proj-sub lang-gr">ROE · NIM · CET1 · P/B · Διαδραστικό</span>
+              </a>
+              <a href="/tomato-qc" class="btn tomato-dash"
+                 onclick="clarity('set','btn_click','tomato_qc')">
+                 <span><i class="fas fa-flask"></i> Industrial Tomato QC Pipeline</span>
+                 <span class="proj-sub lang-en">HACCP · €355K impact · Live Demo</span>
+                 <span class="proj-sub lang-gr">HACCP · €355K εξοικονόμηση · Live Demo</span>
+              </a>
+            </div>
 
             <div class="cv-label fade-item">
                 <i class="fas fa-paper-plane"></i>
@@ -313,5 +346,75 @@
 
         fadeItems.forEach(el => observer.observe(el));
     </script>
+
+  <!-- ── COOKIE CONSENT BANNER ── -->
+  <div id="cookie-banner">
+    <span class="ck-icon">🍪</span>
+    <div class="ck-text">
+      <strong class="lang-en">We use cookies</strong>
+      <strong class="lang-gr">Χρησιμοποιούμε cookies</strong>
+      <span class="ck-desc lang-en">Google Analytics &amp; Microsoft Clarity — anonymous data to improve your experience.</span>
+      <span class="ck-desc lang-gr">Google Analytics &amp; Microsoft Clarity — ανώνυμα δεδομένα για βελτίωση της εμπειρίας σας.</span>
+    </div>
+    <div class="ck-btns">
+      <button class="ck-accept" onclick="cookieAccept()">
+        <span class="lang-en">✓ Accept All</span>
+        <span class="lang-gr">✓ Αποδοχή Όλων</span>
+      </button>
+      <button class="ck-decline" onclick="cookieDecline()">
+        <span class="lang-en">Necessary Only</span>
+        <span class="lang-gr">Μόνο Απαραίτητα</span>
+      </button>
+    </div>
+  </div>
+  <!-- ── / COOKIE BANNER ── -->
+
+    <script>
+    // ── COOKIE CONSENT ─────────────────────────────────────────────────
+    window.clarity = window.clarity || function(){};  // safe fallback
+    window.gtag    = window.gtag    || function(){};  // safe fallback
+
+    function _loadAnalytics() {
+        // Google Analytics
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-GFPG1YS6CB';
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function(){ window.dataLayer.push(arguments); };
+        gtag('js', new Date());
+        gtag('config', 'G-GFPG1YS6CB');
+
+        // Microsoft Clarity
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, 'clarity', 'script', 'vr1rwybrwi');
+    }
+
+    function cookieAccept() {
+        localStorage.setItem('phytai_cookie_consent', 'accepted');
+        document.getElementById('cookie-banner').style.display = 'none';
+        _loadAnalytics();
+    }
+    function cookieDecline() {
+        localStorage.setItem('phytai_cookie_consent', 'declined');
+        document.getElementById('cookie-banner').style.display = 'none';
+    }
+
+    (function(){
+        var c = localStorage.getItem('phytai_cookie_consent');
+        if (c === 'accepted') {
+            _loadAnalytics();
+        } else if (c !== 'declined') {
+            // First visit — show banner after DOM ready
+            document.addEventListener('DOMContentLoaded', function(){
+                document.getElementById('cookie-banner').style.display = 'flex';
+            });
+        }
+    })();
+    // ── / COOKIE CONSENT ───────────────────────────────────────────────
+</script>
 </body>
 </html>
