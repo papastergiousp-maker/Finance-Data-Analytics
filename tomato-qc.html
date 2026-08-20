@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GFPG1YS6CB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GFPG1YS6CB');
+</script>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "vr1rwybrwi");
+</script>
+
 <meta charset="UTF-8" />
 <title>Industrial Tomato QC Dashboard — MFD-024</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
@@ -1542,5 +1560,6 @@ function destroy(id) {
   if (CHARTS[id]) { CHARTS[id].destroy(); delete CHARTS[id]; }
 }
 </script>
+<script src="/cookie-consent.js"></script>
 </body>
 </html>
